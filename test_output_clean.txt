@@ -1,0 +1,606 @@
+TAP version 13
+# AFTER YES -> SKILLS [
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.431Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'WELCOME'
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.431Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'WELCOME'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.431Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.432Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'lang',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.436Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.436Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.437Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.437Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.437Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'fullName',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.438Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.438Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.438Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'email',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.439Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.439Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.440Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'phone',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.441Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.441Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.441Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'location',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.442Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.442Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.442Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.442Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.442Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'professionalSummary',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.444Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.444Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.444Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.444Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.444Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'company',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.447Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.447Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.448Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'jobTitle',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.448Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.448Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.449Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'achievements',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.449Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.449Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.450Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'ADD_ANOTHER',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.450Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.450Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.450Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'achievements',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.451Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.451Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.451Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'ADD_ANOTHER',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.451Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.451Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'help' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'help', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.452Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'clarification' }
+#   },
+#   {
+#     event: 'ClarificationRequested',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system'
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'clarification', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'unknown' }
+#   },
+#   {
+#     event: 'UnknownIntent',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system'
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'unknown', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'skip' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'skip', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.453Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'CONFIRM_SKIP',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'skip' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'skip', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'CONFIRM_SKIP',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionSkipped',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:50:09.454Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SKILLS'
+#   }
+# ]
+# --- METADATA STATE ---
+# currentSectionId: REVIEW
+# currentFieldId: DONE
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY,EXPERIENCE,REFERENCES
+# skippedSections: EDUCATION
+# returnToReview: false
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's begin with your personal information.
+# May I have your full name exactly as you would like it to appear on your CV?
+# lang: en
+# ----------------------
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 34.023037
+      type: 'test'
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 3.653297
+      type: 'test'
+      ...
+    1..2
+ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 39.082151
+  type: 'suite'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 783.605631

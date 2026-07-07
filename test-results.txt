@@ -1,0 +1,139 @@
+TAP version 13
+# {
+#   message: '[Router] language=en command=SKIP validation=N/A AI=false route=COMMAND',
+#   level: 'info',
+#   timestamp: '2026-07-02T16:07:31.587Z'
+# }
+# {
+#   message: '[Router] language=en command=None validation=FAIL AI=false route=VALIDATION',
+#   level: 'info',
+#   timestamp: '2026-07-02T16:07:31.590Z'
+# }
+# {
+#   message: '[Router] language=en command=None validation=PASS AI=true route=AI reason="question"',
+#   level: 'info',
+#   timestamp: '2026-07-02T16:07:31.591Z'
+# }
+# Subtest: InputNormalizer
+    # Subtest: should trim and normalize spaces
+    ok 1 - should trim and normalize spaces
+      ---
+      duration_ms: 1.128709
+      type: 'test'
+      ...
+    1..1
+ok 1 - InputNormalizer
+  ---
+  duration_ms: 2.262388
+  type: 'suite'
+  ...
+# Subtest: LanguageDetector
+    # Subtest: should detect Swahili
+    ok 1 - should detect Swahili
+      ---
+      duration_ms: 0.545628
+      type: 'test'
+      ...
+    # Subtest: should detect English
+    ok 2 - should detect English
+      ---
+      duration_ms: 0.315679
+      type: 'test'
+      ...
+    # Subtest: should fallback to current lang on unknown
+    ok 3 - should fallback to current lang on unknown
+      ---
+      duration_ms: 0.167539
+      type: 'test'
+      ...
+    1..3
+ok 2 - LanguageDetector
+  ---
+  duration_ms: 1.425663
+  type: 'suite'
+  ...
+# Subtest: CommandDetector
+    # Subtest: should detect skip command
+    ok 1 - should detect skip command
+      ---
+      duration_ms: 0.299314
+      type: 'test'
+      ...
+    # Subtest: should ignore non-commands
+    ok 2 - should ignore non-commands
+      ---
+      duration_ms: 0.449825
+      type: 'test'
+      ...
+    1..2
+ok 3 - CommandDetector
+  ---
+  duration_ms: 1.131349
+  type: 'suite'
+  ...
+# Subtest: Layer1Validation
+    # Subtest: should validate email
+    ok 1 - should validate email
+      ---
+      duration_ms: 0.508552
+      type: 'test'
+      ...
+    # Subtest: should validate phone
+    ok 2 - should validate phone
+      ---
+      duration_ms: 0.296274
+      type: 'test'
+      ...
+    1..2
+ok 4 - Layer1Validation
+  ---
+  duration_ms: 1.035071
+  type: 'suite'
+  ...
+# Subtest: Layer2Validation
+    # Subtest: should validate graduation year
+    ok 1 - should validate graduation year
+      ---
+      duration_ms: 0.769074
+      type: 'test'
+      ...
+    1..1
+ok 5 - Layer2Validation
+  ---
+  duration_ms: 1.14472
+  type: 'suite'
+  ...
+# Subtest: ConversationRouter
+    # Subtest: should route commands correctly
+    ok 1 - should route commands correctly
+      ---
+      duration_ms: 3.220021
+      type: 'test'
+      ...
+    # Subtest: should fail validation on invalid email
+    ok 2 - should fail validation on invalid email
+      ---
+      duration_ms: 0.885186
+      type: 'test'
+      ...
+    # Subtest: should require AI for questions
+    ok 3 - should require AI for questions
+      ---
+      duration_ms: 0.828896
+      type: 'test'
+      ...
+    1..3
+ok 6 - ConversationRouter
+  ---
+  duration_ms: 5.172449
+  type: 'suite'
+  ...
+1..6
+# tests 12
+# suites 6
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 253.256065

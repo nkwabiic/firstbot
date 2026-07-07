@@ -1,0 +1,14 @@
+[USER]: Yes I would like to add another
+[BOT -> 255123456789]: Let's build your work experience details.
+
+To begin, what is the name of the company or organization you worked for?
+Final metadata: {
+  currentSectionId: 'EXPERIENCE',
+  currentFieldId: 'company',
+  lang: 'en',
+  lastBotMessage: "Let's build your work experience details.\n" +
+    '\n' +
+    'To begin, what is the name of the company or organization you worked for?',
+  template: 'modern',
+  completedSections: []
+}

@@ -1,0 +1,534 @@
+
+
+=== processMessage ===
+
+public async processMessage(
+    user: User,
+    conversation: Conversation,
+    message: string
+  ): Promise<void> {
+    const meta = (
+      typeof conversation.metadata === 'object' && conversation.metadata !== null
+        ? conversation.metadata
+        : {}
+    ) as SessionMetadata;
+
+    let cv = await this.cvService.getActiveCVForUser(user.id);
+    if (!cv) {
+      cv = await this.cvService.createCV({ userId: user.id });
+    }
+
+    // 1. WELCOME FLOW BUG FIX
+    if (!meta.currentSectionId) {
+      await this.startSection(ORDERED_SECTIONS[0].id, conversation, user, meta.lang === 'sw' ? 'sw' : 'en', cv, meta);
+      return;
+    }
+
+    const lang = meta.lang === 'sw' ? 'sw' : 'en';
+
+    // 4. REVIEW MODE BUG FIX
+    if (meta.currentSectionId === ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id) {
+      const msgLower = message.trim().toLowerCase();
+      const isFinish = msgLower.includes('correct') || msgLower.includes('sahihi') || msgLower.includes('yes') || msgLower.includes('ndio') || msgLower.includes('generate');
+      
+      if (isFinish) {
+        await this.handleReviewCompletion(conversation, user, lang, cv, meta);
+        return;
+      }
+    }
+
+    // Prepare expected field info for IntentEngine
+    let expectedField: string | undefined = undefined;
+    let expectedFieldType: string | undefined = undefined;
+    let currentQuestion: string | undefined = undefined;
+    let fieldDescription: string | undefined = undefined;
+    let validationHints: string | undefined = undefined;
+
+    const currentSectionId = meta.currentSectionId as SectionId;
+    if (currentSectionId) {
+      const section = SECTION_REGISTRY[currentSectionId];
+      if (section && meta.currentFieldId) {
+        const field = section.fields.find((f) => f.id === meta.currentFieldId);
+        if (field) {
+          expectedField = field.id;
+          currentQuestion = field.prompt[lang];
+          fieldDescription = field.name[lang];
+          
+          if (field.id === 'email') {
+            expectedFieldType = 'email address';
+            validationHints = 'Must be a valid professional email address containing @ and a valid domain name.';
+          } else if (field.id === 'phone') {
+            expectedFieldType = 'phone number';
+            validationHints = 'Must be a valid international or local phone number.';
+          } else if (field.id === 'lang') {
+            expectedFieldType = 'language code';
+            validationHints = 'Must be either Swahili ( Kiswahili, 1, sw ) or English ( English, 2, en ). Extract "sw" or "en".';
+          } else if (field.id === 'startYear' || field.id === 'endYear' || field.id === 'gradYear' || field.id === 'certYear') {
+            expectedFieldType = 'year';
+            validationHints = 'Must be a 4-digit number representing a year (e.g. 2021).';
+          } else {
+            expectedFieldType = 'string';
+            validationHints = 'Provide a concise and accurate answer.';
+          }
+        }
+      }
+    }
+
+    const context = ContextBuilder.build({
+      language: lang,
+      conversationId: conversation.id,
+      currentSection: meta.currentSectionId,
+      currentState: meta.currentFieldId || 'INTRO',
+      lastBotMessage: meta.lastBotMessage || '',
+      latestUserMessage: message,
+      conversationHistory: [],
+      cvSnapshot: cv,
+      completedSections: meta.completedSections || [],
+      activeTemplate: meta.template || 'modern',
+      sessionMetadata: meta as any,
+      expectedField,
+      expectedFieldType,
+      currentQuestion,
+      fieldDescription,
+      validationHints,
+    });
+
+    const intentResult = await this.intentEngine.evaluate(context);
+    await this.handleIntent(intentResult, conversation, user, lang, cv, meta, message);
+  }
+
+
+=== handleIntent ===
+
+private async handleIntent(
+    intentResult: IntentResult,
+    conversation: Conversation,
+    user: User,
+    lang: 'sw' | 'en',
+    cv: CV,
+    meta: SessionMetadata,
+    message: string
+  ) {
+    const section = SECTION_REGISTRY[meta.currentSectionId as SectionId];
+    if (intentResult.extractedData && intentResult.extractedData.lang) {
+      meta.lang = intentResult.extractedData.lang as 'sw' | 'en';
+      lang = meta.lang;
+    }
+
+    if (intentResult.intent === 'edit') {
+      const sectionName = intentResult.extractedData?.sectionToEdit;
+      if (sectionName) {
+        const nameLower = String(sectionName).toLowerCase();
+        let targetSection: SectionDefinition | undefined;
+
+        const personalInfoKeywords = ['simu', 'phone', 'email', 'address', 'jina', 'name', 'personal', 'binafsi', 'anwani', 'location'];
+        
+        // 2. HARDCODED SECTION IDS REMOVAL
+        const isPersonalInfo = personalInfoKeywords.some((k) => nameLower.includes(k));
+        if (isPersonalInfo) {
+           targetSection = ORDERED_SECTIONS.find(s => s.fields.some(f => f.id === 'fullName' || f.id === 'phone'));
+        } else {
+          for (const s of ORDERED_SECTIONS) {
+            if (s.id === ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id) continue;
+            if (
+              nameLower.includes(s.name.en.toLowerCase()) ||
+              nameLower.includes(s.name.sw.toLowerCase()) ||
+              s.name.en.toLowerCase().includes(nameLower) ||
+              s.name.sw.toLowerCase().includes(nameLower)
+            ) {
+              targetSection = s;
+              break;
+            }
+          }
+        }
+
+        if (targetSection) {
+          this.eventBus.publish({
+            event: ConversationEventType.EditStarted,
+            timestamp: new Date().toISOString(),
+            conversationId: conversation.id,
+            userId: user.id,
+            section: targetSection.id,
+          });
+          
+          if (meta.currentSectionId !== ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id && !meta.returnToReview) {
+             // normal edit, just transitions
+          } else {
+             meta.returnToReview = true;
+          }
+          await this.startSection(targetSection.id, conversation, user, lang, cv, meta);
+          return;
+        }
+      }
+
+      const botReply = intentResult.botReply || (lang === 'sw'
+          ? 'Umesema unataka kubadili taarifa, lakini sijui ni sehemu gani. Tafadhali taja sehemu (mfano: elimu, uzoefu).'
+          : 'I understand you want to edit, but I am not sure which section. Please specify (e.g., education, experience).');
+      await this.provider.sendMessage(user.phone, botReply);
+      return;
+    }
+
+    if (intentResult.intent === 'help' || intentResult.intent === 'clarification' || intentResult.intent === 'unknown') {
+      this.eventBus.publish({
+        event: ConversationEventType.ConversationPaused,
+        timestamp: new Date().toISOString(),
+        conversationId: conversation.id,
+        userId: user.id,
+      });
+      const reply = intentResult.botReply || (lang === 'sw' ? 'Sijaelewa, tafadhali rudia.' : "I didn't understand, please try again.");
+      await this.provider.sendMessage(user.phone, reply);
+
+      this.eventBus.publish({
+        event: ConversationEventType.ConversationResumed,
+        timestamp: new Date().toISOString(),
+        conversationId: conversation.id,
+        userId: user.id,
+      });
+      await this.sendCurrentPrompt(section, conversation, meta, user, lang);
+      return;
+    }
+
+    if (intentResult.intent === 'skip') {
+      if (section.required) {
+        await this.handleSkipConfirmation(section, conversation, user, lang, meta);
+      } else {
+        this.eventBus.publish({
+          event: ConversationEventType.SectionSkipped,
+          timestamp: new Date().toISOString(),
+          conversationId: conversation.id,
+          userId: user.id,
+          section: section.id,
+        });
+        await this.completeSection(section, conversation, user, lang, cv, meta, true);
+      }
+      return;
+    }
+
+    if (meta.currentFieldId === 'CONFIRM_SKIP') {
+      const ans = message.trim().toLowerCase();
+      const isYes = ans === 'yes' || ans === 'ndio' || ans === 'y' || ans === 'sawa' || ans === 'sawa kabisa' || ans === 'skip' || ans === 'ruka' || ans.startsWith('yes ') || ans.startsWith('ndio ');
+      const isNo = ans === 'no' || ans === 'hapana' || ans === 'n' || ans === 'si sahihi' || ans.startsWith('no ') || ans.startsWith('hapana ') || ans.includes('change my mind') || ans.includes('badili mawazo') || ans.includes('nitaweka') || ans.includes('nitajaza');
+
+      if (isYes) {
+        this.eventBus.publish({
+          event: ConversationEventType.SectionSkipped,
+          timestamp: new Date().toISOString(),
+          conversationId: conversation.id,
+          userId: user.id,
+          section: section.id,
+        });
+        await this.completeSection(section, conversation, user, lang, cv, meta, true);
+      } else if (isNo) {
+        meta.currentFieldId = section.fields.length > 0 ? section.fields[0].id : 'DONE';
+        await this.saveMeta(conversation.id, meta);
+        await this.sendCurrentPrompt(section, conversation, meta, user, lang);
+      } else {
+        if (intentResult.botReply) {
+          await this.provider.sendMessage(user.phone, intentResult.botReply);
+        } else {
+          const fallback = lang === 'sw'
+              ? 'Sikuelewa vizuri. Tafadhali thibitisha kwa kujibu *Ndio* kama ungependa kuruka sehemu hii, au *Hapana* ili tuijaze sasa.'
+              : "I didn't quite catch that. Please confirm by replying *Yes* to skip this section, or *No* to fill it in now.";
+          await this.provider.sendMessage(user.phone, fallback);
+        }
+      }
+      return;
+    }
+
+    if (intentResult.intent === 'confirmation') {
+      if (meta.pendingConfirmationData) {
+        await this.applyExtractedData(meta.pendingConfirmationData, cv);
+        const data = meta.pendingConfirmationData;
+        meta.pendingConfirmationData = undefined;
+        await this.saveMeta(conversation.id, meta); // 6. SAVE METADATA
+        await this.advanceField(section, conversation, user, lang, cv, meta, data);
+        return;
+      }
+    }
+
+    if (intentResult.intent === 'answer' || intentResult.intent === 'correction') {
+      if (meta.skipConfirmed) meta.skipConfirmed = false;
+
+      if (intentResult.requiresConfirmation) {
+        meta.pendingConfirmationData = intentResult.extractedData;
+        await this.saveMeta(conversation.id, meta); // 6. SAVE METADATA
+        const confirmMsg = lang === 'sw'
+            ? 'Nimeelewa: ' + JSON.stringify(intentResult.extractedData) + '. Ni sahihi?'
+            : 'I understood: ' + JSON.stringify(intentResult.extractedData) + '. Is this correct?';
+        await this.provider.sendMessage(user.phone, confirmMsg);
+        return;
+      }
+
+      if (intentResult.extractedData) {
+        await this.applyExtractedData(intentResult.extractedData, cv);
+      }
+
+      // 3. ADD_ANOTHER LOOP FIX
+      if (meta.currentFieldId === 'ADD_ANOTHER') {
+        const ans = message.trim().toLowerCase();
+        const isYes = ans === 'yes' || ans === 'ndio' || ans === 'y' || ans === 'ongeza' || ans.includes('add') || ans.includes('ndiyo');
+        const isNo = ans === 'no' || ans === 'hapana' || ans === 'n' || ans.includes('continue') || ans.includes('endelea') || ans === 'sawa' || ans.includes('done');
+
+        if (isYes) {
+           meta.currentFieldId = section.fields[0].id;
+           await this.saveMeta(conversation.id, meta);
+           await this.sendCurrentPrompt(section, conversation, meta, user, lang);
+           return;
+        } else if (isNo) {
+           await this.completeSection(section, conversation, user, lang, cv, meta, false);
+           return;
+        } else {
+           // Fallback if unclear
+           const botReply = lang === 'sw' ? 'Tafadhali jibu Ndio (kuongeza) au Hapana (kumaliza).' : 'Please reply Yes (to add another) or No (to finish section).';
+           await this.provider.sendMessage(user.phone, botReply);
+           return;
+        }
+      }
+
+      await this.advanceField(section, conversation, user, lang, cv, meta, intentResult.extractedData, intentResult.botReply);
+      return;
+    }
+
+    // Default catch-all
+    await this.sendCurrentPrompt(section, conversation, meta, user, lang);
+  }
+
+
+=== startSection ===
+
+private async startSection(
+    sectionId: SectionId,
+    conversation: Conversation,
+    user: User,
+    lang: 'sw' | 'en',
+    cv: CV,
+    meta: SessionMetadata
+  ) {
+    const section = SECTION_REGISTRY[sectionId];
+    if (!section) return;
+
+    this.eventBus.publish({
+      event: ConversationEventType.SectionStarted,
+      timestamp: new Date().toISOString(),
+      conversationId: conversation.id,
+      userId: user.id,
+      section: sectionId,
+    });
+
+    meta.currentSectionId = sectionId;
+    meta.currentFieldId = section.fields.length > 0 ? section.fields[0].id : 'DONE';
+    meta.skipConfirmed = false;
+    meta.pendingConfirmationData = undefined;
+
+    await this.saveMeta(conversation.id, meta); // 6. SAVE METADATA
+
+    await this.showProgress(section, meta, user, lang);
+
+    // 5. SECTION COMPLETION BUG - Only send intro if we are NOT returning to review, to avoid duplicating
+    if (!meta.returnToReview) {
+       let intro = section.introPrompt[lang];
+       if (section.id === ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id) {
+         intro += '\n\n' + (await this.buildReviewText(meta, lang));
+       }
+       if (intro && intro.trim() !== '') {
+         await this.provider.sendMessage(user.phone, intro);
+       }
+    } else if (section.id === ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id) {
+       // If we returned to review section, print the review text again
+       const text = await this.buildReviewText(meta, lang);
+       await this.provider.sendMessage(user.phone, text);
+    }
+
+    if (meta.currentFieldId !== 'DONE') {
+      await this.sendCurrentPrompt(section, conversation, meta, user, lang);
+    } else {
+      if (sectionId !== ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id) {
+        await this.completeSection(section, conversation, user, lang, cv, meta, false);
+      }
+    }
+  }
+
+
+=== advanceField ===
+
+private async advanceField(
+    section: SectionDefinition,
+    conversation: Conversation,
+    user: User,
+    lang: 'sw' | 'en',
+    cv: CV,
+    meta: SessionMetadata,
+    extractedData?: Record<string, any>,
+    botReply?: string
+  ) {
+    let currentIndex = section.fields.findIndex((f) => f.id === meta.currentFieldId);
+
+    if (extractedData) {
+      while (currentIndex < section.fields.length - 1) {
+        const nextF = section.fields[currentIndex + 1];
+        if (extractedData[nextF.id] !== undefined && extractedData[nextF.id] !== null) {
+          currentIndex++;
+        } else {
+          break;
+        }
+      }
+    }
+
+    if (currentIndex === -1 || currentIndex >= section.fields.length - 1) {
+      if (section.isMultiItem && meta.currentFieldId !== 'ADD_ANOTHER') {
+        meta.currentFieldId = 'ADD_ANOTHER';
+        await this.saveMeta(conversation.id, meta); // 6. SAVE METADATA
+        let prompt = lang === 'sw'
+            ? 'Je, ungependa kuongeza nyingine? (Ndio/Hapana)'
+            : 'Would you like to add another? (Yes/No)';
+        if (botReply) {
+          prompt = `${botReply.trim()}\n\n${prompt}`;
+        }
+        await this.provider.sendMessage(user.phone, prompt);
+        return;
+      }
+      if (meta.currentFieldId === 'ADD_ANOTHER') {
+        // Handled in handleIntent explicitly now.
+      }
+      await this.completeSection(section, conversation, user, lang, cv, meta, false);
+    } else {
+      const nextField = section.fields[currentIndex + 1];
+      meta.currentFieldId = nextField.id;
+      await this.saveMeta(conversation.id, meta); // 6. SAVE METADATA
+      await this.sendCurrentPrompt(section, conversation, meta, user, lang, botReply);
+    }
+  }
+
+
+=== completeSection ===
+
+private async completeSection(
+    section: SectionDefinition,
+    conversation: Conversation,
+    user: User,
+    lang: 'sw' | 'en',
+    cv: CV,
+    meta: SessionMetadata,
+    skipped: boolean
+  ) {
+    if (!meta.completedSections) meta.completedSections = [];
+    if (!meta.skippedSections) meta.skippedSections = [];
+
+    if (skipped) {
+      if (!meta.skippedSections.includes(section.id)) meta.skippedSections.push(section.id);
+    } else {
+      if (!meta.completedSections.includes(section.id)) meta.completedSections.push(section.id);
+    }
+
+    this.eventBus.publish({
+      event: ConversationEventType.SectionCompleted,
+      timestamp: new Date().toISOString(),
+      conversationId: conversation.id,
+      userId: user.id,
+      section: section.id,
+    });
+
+    if (!skipped && meta.returnToReview) {
+      const ack = this.getAcknowledgement(lang);
+      const reward = lang === 'sw'
+          ? `${ack} ${section.name.sw} imeongezwa kikamilifu.`
+          : `${ack} Your ${section.name.en} has been successfully updated.`;
+      await this.provider.sendMessage(user.phone, reward);
+    }
+
+    if (meta.returnToReview) {
+      meta.returnToReview = false;
+      await this.startSection(ORDERED_SECTIONS[ORDERED_SECTIONS.length - 1].id, conversation, user, lang, cv, meta);
+    } else {
+      const currentIndex = ORDERED_SECTIONS.findIndex((s) => s.id === section.id);
+      if (currentIndex < ORDERED_SECTIONS.length - 1) {
+        const nextSection = ORDERED_SECTIONS[currentIndex + 1];
+        await this.startSection(nextSection.id, conversation, user, lang, cv, meta);
+      } else {
+        // Should theoretically never hit this because REVIEW is the last section
+      }
+    }
+  }
+
+
+=== sendCurrentPrompt ===
+
+private async sendCurrentPrompt(
+    section: SectionDefinition,
+    conversation: Conversation,
+    meta: SessionMetadata,
+    user: User,
+    lang: 'sw' | 'en',
+    botReply?: string
+  ) {
+    const field = section.fields.find((f) => f.id === meta.currentFieldId);
+    if (field) {
+      let prompt = field.prompt[lang];
+      if (botReply) {
+        prompt = `${botReply.trim()}\n\n${prompt}`;
+      }
+
+      meta.lastBotMessage = prompt;
+      await this.saveMeta(conversation.id, meta); // 7. CURRENT PROMPT BUG
+      
+      await this.provider.sendMessage(user.phone, prompt);
+    }
+  }
+
+
+=== handleReviewCompletion ===
+
+private async handleReviewCompletion(
+    conversation: Conversation,
+    user: User,
+    lang: 'sw' | 'en',
+    cv: CV,
+    meta: SessionMetadata
+  ) {
+    this.eventBus.publish({
+      event: ConversationEventType.ReviewCompleted,
+      timestamp: new Date().toISOString(),
+      conversationId: conversation.id,
+      userId: user.id,
+    });
+
+    const waitMsg = lang === 'sw'
+        ? 'Asante! Naandaa CV yako sasa. Tafadhali subiri kidogo...'
+        : 'Thank you! I am generating your CV now. Please wait a moment...';
+    await this.provider.sendMessage(user.phone, waitMsg);
+
+    try {
+      const enhanceRes = await this.authoringService.enhanceCV(cv, lang);
+      if (!enhanceRes.success) {
+        logger.warn(`Failed to enhance CV ${cv.id}: ${enhanceRes.reason}`);
+      }
+      
+      const html = this.cvPreviewService.generateHtml(user, cv);
+      const pdfUrl = await this.pdfService.generatePDF(html, user.id);
+      
+      if (pdfUrl) {
+        await this.cvService.updateCV(cv.id, { pdfUrl });
+        
+        this.eventBus.publish({
+          event: ConversationEventType.PDFGenerated,
+          timestamp: new Date().toISOString(),
+          conversationId: conversation.id,
+          userId: user.id,
+          metadata: { pdfUrl },
+        });
+
+        const doneMsg = lang === 'sw'
+            ? `Tayari! Hapa kuna CV yako mpya.\nUnaweza kuipakua hapa: ${pdfUrl}\n\nKila la heri katika maombi yako ya kazi!`
+            : `All done! Here is your new professional CV.\nYou can download it here: ${pdfUrl}\n\nBest of luck with your job applications!`;
+        await this.provider.sendMessage(user.phone, doneMsg);
+      } else {
+        throw new Error('PDF URL is empty');
+      }
+    } catch (error) {
+      logger.error('Error generating PDF:', error);
+      const errMsg = lang === 'sw'
+          ? 'Samahani, kumetokea hitilafu wakati wa kutengeneza PDF. Tafadhali jaribu tena baadaye.'
+          : 'Sorry, there was an error generating your PDF. Please try again later.';
+      await this.provider.sendMessage(user.phone, errMsg);
+    }
+  }

@@ -1,0 +1,40 @@
+TAP version 13
+# --- METADATA STATE ---
+# currentSectionId: REVIEW
+# currentFieldId: DONE
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY,EXPERIENCE,REFERENCES
+# skippedSections: EDUCATION
+# returnToReview: false
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's begin with your personal information.
+# May I have your full name exactly as you would like it to appear on your CV?
+# lang: en
+# ----------------------
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 29.123415
+      type: 'test'
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 3.494776
+      type: 'test'
+      ...
+    1..2
+ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 34.445437
+  type: 'suite'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 764.56556

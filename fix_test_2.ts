@@ -1,0 +1,10 @@
+import fs from 'fs';
+let content = fs.readFileSync('src/conversation/fsm/tests/fsm-integration.test.ts', 'utf-8');
+content = content.replace(/mockProviderAI.responseData = { intent: 'answer'/g, "mockProviderAI.responseData = { intent: 'answer', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'skip'/g, "mockProviderAI.responseData = { intent: 'skip', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'help'/g, "mockProviderAI.responseData = { intent: 'help', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'clarification'/g, "mockProviderAI.responseData = { intent: 'clarification', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'unknown'/g, "mockProviderAI.responseData = { intent: 'unknown', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'edit'/g, "mockProviderAI.responseData = { intent: 'edit', confidence: 99");
+content = content.replace(/mockProviderAI.responseData = { intent: 'confirmation'/g, "mockProviderAI.responseData = { intent: 'confirmation', confidence: 99");
+fs.writeFileSync('src/conversation/fsm/tests/fsm-integration.test.ts', content);

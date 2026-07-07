@@ -1,0 +1,296 @@
+TAP version 13
+# [USER]: hello
+# [BOT]: Welcome to CareerBot 👋
+# Tafadhali chagua lugha yako / Please choose your language.
+# 1️⃣ Kiswahili
+# 2️⃣ English
+# --- METADATA STATE ---
+# currentSectionId: LANGUAGE_SELECTION
+# currentFieldId: lang
+# completedSections: WELCOME
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Welcome to CareerBot 👋
+# Tafadhali chagua lugha yako / Please choose your language.
+# 1️⃣ Kiswahili
+# 2️⃣ English
+# lang: undefined
+# ----------------------
+# [USER]: English
+# [BOT]: 📊 *Live Progress:*
+# ➡️ Inayofuata: *Personal Information*
+# Remaining: 9
+# [BOT]: Hello! It is a pleasure to meet you. I am your HR consultant, and I am excited to help you build a professional CV that stands out.
+# Let's begin by gathering your basic personal information. This will ensure that potential employers can easily contact you.
+# *Time:* ~1 minute
+# We will discuss:
+# ✓ Full Name
+# ✓ Email Address
+# ✓ Phone Number
+# ✓ Location
+# [BOT]: Let's begin with your personal information.
+# May I have your full name exactly as you would like it to appear on your CV?
+# --- METADATA STATE ---
+# currentSectionId: PERSONAL_INFO
+# currentFieldId: fullName
+# completedSections: WELCOME,LANGUAGE_SELECTION
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's begin with your personal information.
+# May I have your full name exactly as you would like it to appear on your CV?
+# lang: en
+# ----------------------
+# [USER]: John Doe
+# [BOT]: Thank you. Could you please share your professional email address? Employers will use this as their primary way to send you job offers and invitations.
+# --- METADATA STATE ---
+# currentSectionId: PERSONAL_INFO
+# currentFieldId: email
+# completedSections: WELCOME,LANGUAGE_SELECTION
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Thank you. Could you please share your professional email address? Employers will use this as their primary way to send you job offers and invitations.
+# lang: en
+# ----------------------
+# [USER]: test@example.com
+# [BOT]: Perfect. What is your preferred phone number? This is crucial so recruiters can call you directly or reach out via WhatsApp for quick updates.
+# --- METADATA STATE ---
+# currentSectionId: PERSONAL_INFO
+# currentFieldId: phone
+# completedSections: WELCOME,LANGUAGE_SELECTION
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Perfect. What is your preferred phone number? This is crucial so recruiters can call you directly or reach out via WhatsApp for quick updates.
+# lang: en
+# ----------------------
+# [USER]: 123456789
+# [BOT]: Understood. Finally for this section, where are you currently located? Sharing your city and region (for example: Dar es Salaam, Tanzania) helps employers match you with local roles.
+# --- METADATA STATE ---
+# currentSectionId: PERSONAL_INFO
+# currentFieldId: location
+# completedSections: WELCOME,LANGUAGE_SELECTION
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Understood. Finally for this section, where are you currently located? Sharing your city and region (for example: Dar es Salaam, Tanzania) helps employers match you with local roles.
+# lang: en
+# ----------------------
+# [USER]: Tanzania
+# [BOT]: 📊 *Live Progress:*
+# ✅ Kamili: 1/10
+# ➡️ Inayofuata: *Professional Summary*
+# Remaining: 8
+# [BOT]: Excellent. We have your contact details. Next, let's craft a compelling Professional Summary.
+# *Why it matters:* This brief section sits at the top of your CV and serves as your 'elevator pitch,' immediately showing employers your unique strengths and career focus.
+# *Time:* ~2 minutes.
+# [BOT]: Now, let's build your professional summary. This is your personal pitch to employers.
+# Could you please describe your professional background, your key expertise, and what drives you in your career? Feel free to write naturally, and I will shape it into a highly polished professional statement.
+# --- METADATA STATE ---
+# currentSectionId: SUMMARY
+# currentFieldId: professionalSummary
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Now, let's build your professional summary. This is your personal pitch to employers.
+# Could you please describe your professional background, your key expertise, and what drives you in your career? Feel free to write naturally, and I will shape it into a highly polished professional statement.
+# lang: en
+# ----------------------
+# [USER]: Software Engineer
+# [BOT]: 📊 *Live Progress:*
+# ✅ Kamili: 2/10
+# ➡️ Inayofuata: *Work Experience*
+# Remaining: 7
+# [BOT]: Wonderful, your professional summary looks strong! Now let's discuss your Work Experience.
+# *Why it matters:* This is typically the most critical part of a CV. It tells potential employers a clear story of your career journey, responsibilities, and achievements.
+# *Time:* ~3 minutes.
+# [BOT]: Let's build your work experience details.
+# To begin, what is the name of the company or organization you worked for?
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: company
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's build your work experience details.
+# To begin, what is the name of the company or organization you worked for?
+# lang: en
+# ----------------------
+# [USER]: Google
+# [BOT]: What position or job title did you hold there?
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: jobTitle
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: What position or job title did you hold there?
+# lang: en
+# ----------------------
+# [USER]: Dev
+# [BOT]: In which year did you start working in this role? (For example: 2021)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: In which year did you start working in this role? (For example: 2021)
+# lang: en
+# ----------------------
+# [USER]: 2020
+# [BOT]: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: endYear
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# lang: en
+# ----------------------
+# [USER]: 2022
+# [BOT]: Would you like to add another? (Yes/No)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: ADD_ANOTHER
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Would you like to add another? (Yes/No)
+# lang: en
+# ----------------------
+# [USER]: YES
+# [BOT]: 📊 *Live Progress:*
+# ✅ Kamili: 3/10
+# ➡️ Inayofuata: *Education*
+# Remaining: 6
+# [BOT]: Excellent. Your work experience has been captured beautifully! Next, let's detail your educational background.
+# *Why it matters:* This section validates your technical foundation, academic qualifications, and commitment to learning.
+# *Time:* ~2 minutes.
+# [BOT]: Let's capture your academic achievements.
+# Which school, college, or university did you attend for your studies?
+# --- METADATA STATE ---
+# currentSectionId: EDUCATION
+# currentFieldId: institution
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY,EXPERIENCE
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's capture your academic achievements.
+# Which school, college, or university did you attend for your studies?
+# lang: en
+# ----------------------
+# [USER]: hello
+# [BOT]: In which year did you start working in this role? (For example: 2021)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: In which year did you start working in this role? (For example: 2021)
+# lang: en
+# ----------------------
+# [USER]: Engineer
+# [BOT]: In which year did you start working in this role? (For example: 2021)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: In which year did you start working in this role? (For example: 2021)
+# lang: en
+# ----------------------
+# [USER]: 2020
+# [BOT]: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: endYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# lang: en
+# ----------------------
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    not ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 30.214097
+      type: 'test'
+      location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:2:796'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        + actual - expected
+        
+        + 'institution'
+        - 'company'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: 'company'
+      actual: 'institution'
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:160:12)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    not ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 3.7086
+      type: 'test'
+      location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:2:7141'
+      failureType: 'testCodeFailure'
+      error: |-
+        Expected values to be strictly equal:
+        + actual - expected
+        
+        + undefined
+        - '2020'
+        
+      code: 'ERR_ASSERTION'
+      name: 'AssertionError'
+      expected: '2020'
+      operator: 'strictEqual'
+      stack: |-
+        TestContext.<anonymous> (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:297:13)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..2
+not ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 35.320345
+  type: 'suite'
+  location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:1:909'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 713.270701

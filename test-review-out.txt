@@ -1,0 +1,159 @@
+{
+  message: '[FSM] RAW conversation.metadata = {\n' +
+    '  "currentSectionId": "REFERENCES",\n' +
+    '  "currentFieldId": "CONFIRM_SKIP",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:44.004Z'
+}
+{
+  message: '[FSM] Parsed meta = {\n' +
+    '  "currentSectionId": "REFERENCES",\n' +
+    '  "currentFieldId": "CONFIRM_SKIP",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:44.006Z'
+}
+{
+  message: '[FSM] processMessage section=REFERENCES field=CONFIRM_SKIP review=undefined',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:44.007Z'
+}
+{
+  message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:44.008Z'
+}
+{
+  message: '[AICache] Set for key: 367a1512cb3922b271b722ac973502c70fbc23f1db3cd8d712512a60f344af6a',
+  level: 'debug',
+  timestamp: '2026-07-06T10:52:45.244Z'
+}
+{
+  message: '[FSM] Meta BEFORE handleIntent = {\n' +
+    '  "currentSectionId": "REFERENCES",\n' +
+    '  "currentFieldId": "CONFIRM_SKIP",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.245Z'
+}
+{
+  message: '[FSM] Calling startSection(REVIEW)',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.246Z'
+}
+{
+  message: '[TRACE] About to enter REVIEW',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.246Z'
+}
+{
+  message: '[TRACE] ENTER startSection(REVIEW)',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.247Z'
+}
+{
+  message: '[FSM] ENTER startSection(REVIEW)',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.247Z'
+}
+{
+  message: '[FSM] startSection SET meta.isReviewMode=true',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.248Z'
+}
+{
+  message: '[FSM] AFTER SET isReviewMode\n' +
+    '{\n' +
+    '  "currentSectionId": "REVIEW",\n' +
+    '  "currentFieldId": "DONE",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": false,\n' +
+    '  "skippedSections": [\n' +
+    '    "REFERENCES"\n' +
+    '  ],\n' +
+    '  "skipConfirmed": false,\n' +
+    '  "isReviewMode": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.248Z'
+}
+{
+  message: '[TRACE] saveMeta about to execute',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.248Z'
+}
+{
+  message: '[FSM] BEFORE saveMeta()\n' +
+    '{\n' +
+    '  "currentSectionId": "REVIEW",\n' +
+    '  "currentFieldId": "DONE",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": false,\n' +
+    '  "skippedSections": [\n' +
+    '    "REFERENCES"\n' +
+    '  ],\n' +
+    '  "skipConfirmed": false,\n' +
+    '  "isReviewMode": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.248Z'
+}
+{
+  message: '[TRACE] ENTER saveMeta',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.248Z'
+}
+{
+  message: '[FSM] saveMeta() received\n' +
+    '{\n' +
+    '  "currentSectionId": "REVIEW",\n' +
+    '  "currentFieldId": "DONE",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": false,\n' +
+    '  "skippedSections": [\n' +
+    '    "REFERENCES"\n' +
+    '  ],\n' +
+    '  "skipConfirmed": false,\n' +
+    '  "isReviewMode": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.249Z'
+}
+[MOCK DB] updateConversation c1 {"metadata":{"currentSectionId":"REVIEW","currentFieldId":"DONE","lang":"en","template":"modern","completedSections":[],"returnToReview":false,"skippedSections":["REFERENCES"],"skipConfirmed":false,"isReviewMode":true}}
+{
+  message: '[FSM] DATABASE metadata AFTER save\n' +
+    '{\n' +
+    '  "currentSectionId": "REVIEW",\n' +
+    '  "currentFieldId": "DONE",\n' +
+    '  "lang": "en",\n' +
+    '  "template": "modern",\n' +
+    '  "completedSections": [],\n' +
+    '  "returnToReview": false,\n' +
+    '  "skippedSections": [\n' +
+    '    "REFERENCES"\n' +
+    '  ],\n' +
+    '  "skipConfirmed": false,\n' +
+    '  "isReviewMode": true\n' +
+    '}',
+  level: 'info',
+  timestamp: '2026-07-06T10:52:45.249Z'
+}

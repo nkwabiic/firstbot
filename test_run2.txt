@@ -1,0 +1,116 @@
+TAP version 13
+# [USER]: hello
+# [BOT]: Welcome to CareerBot 👋
+# Tafadhali chagua lugha yako / Please choose your language.
+# 1️⃣ Kiswahili
+# 2️⃣ English
+# --- METADATA STATE ---
+# currentSectionId: LANGUAGE_SELECTION
+# currentFieldId: lang
+# completedSections: WELCOME
+# skippedSections: 
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: Welcome to CareerBot 👋
+# Tafadhali chagua lugha yako / Please choose your language.
+# 1️⃣ Kiswahili
+# 2️⃣ English
+# lang: undefined
+# ----------------------
+# [USER]: English
+# [USER]: hello
+# [BOT]: In which year did you start working in this role? (For example: 2021)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: In which year did you start working in this role? (For example: 2021)
+# lang: en
+# ----------------------
+# [USER]: Engineer
+# [BOT]: In which year did you start working in this role? (For example: 2021)
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: In which year did you start working in this role? (For example: 2021)
+# lang: en
+# ----------------------
+# [USER]: 2020
+# [BOT]: I understood: {"startYear":"2020"}. Is this correct?
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: startYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: {"startYear":"2020"}
+# lastBotMessage: I understood: {"startYear":"2020"}. Is this correct?
+# lang: en
+# ----------------------
+# [USER]: yes
+# [BOT]: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# --- METADATA STATE ---
+# currentSectionId: EXPERIENCE
+# currentFieldId: endYear
+# completedSections: undefined
+# skippedSections: undefined
+# returnToReview: undefined
+# pendingConfirmationData: undefined
+# lastBotMessage: When did you complete this role? Please specify the graduation/end year, or write 'Present' if you are currently still working there.
+# lang: en
+# ----------------------
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    not ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 10.504931
+      type: 'test'
+      location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:2:796'
+      failureType: 'testCodeFailure'
+      error: 'conversation is not defined'
+      code: 'ERR_TEST_FAILURE'
+      name: 'ReferenceError'
+      stack: |-
+        FSMEngine.showProgress (/app/applet/src/conversation/fsm/FSMEngine.ts:735:25)
+        FSMEngine.startSection (/app/applet/src/conversation/fsm/FSMEngine.ts:542:16)
+        FSMEngine.completeSection (/app/applet/src/conversation/fsm/FSMEngine.ts:685:20)
+        FSMEngine.advanceField (/app/applet/src/conversation/fsm/FSMEngine.ts:609:18)
+        FSMEngine.handleIntent (/app/applet/src/conversation/fsm/FSMEngine.ts:491:18)
+        async FSMEngine.processMessage (/app/applet/src/conversation/fsm/FSMEngine.ts:132:5)
+        async runTick (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:93:7)
+        async TestContext.<anonymous> (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:119:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 6.882637
+      type: 'test'
+      ...
+    1..2
+not ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 18.855887
+  type: 'suite'
+  location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:1:909'
+  failureType: 'subtestsFailed'
+  error: '1 subtest failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 1
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 730.682719

@@ -1,0 +1,951 @@
+TAP version 13
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.161Z'
+# }
+# {
+#   message: '[AICache] Set for key: 19623fa54c89a7d6867fd46454aa3af149c398612ad36d4b5f21510f39d49993',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.164Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.166Z'
+# }
+# {
+#   message: '[AICache] Set for key: 2ad910d0b1c78b7f679ca7422660a4a88ad78324e7f6e367b9323c6cf5cb4312',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.167Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.167Z'
+# }
+# {
+#   message: '[AICache] Set for key: 71b4da8cca8bf1ace6858d447c02487697e7be2c364713f95a2ed1a7410a3b25',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.168Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.169Z'
+# }
+# {
+#   message: '[AICache] Set for key: afafe9df9afea3095fba90f9574f16e9145afae05ad3dc7c526334d99ae911af',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.169Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.170Z'
+# }
+# {
+#   message: '[AICache] Set for key: 7859b6bae9c6770d92934b0ee55c435a232264c9b42404d6648be79aab67151f',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.171Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.172Z'
+# }
+# {
+#   message: '[AICache] Set for key: f8474d14e3358574a3a77c08ba6d8828aec92c28d9b741234ce706cbb533264c',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.172Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.173Z'
+# }
+# {
+#   message: '[AICache] Set for key: 434cddee4a12c5463d6cc9f63b3e5a6e05903761a8483ffc9d248e22d704a678',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.173Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.175Z'
+# }
+# {
+#   message: '[AICache] Set for key: 5d8f34fffa09dd616c7accef25838def4e1c5ca64817aa86c9854095a3fbd526',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.176Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.176Z'
+# }
+# {
+#   message: '[AICache] Set for key: 18b100599f741e1abf78440b633834fa83f743c0224abd25e2cd4ac0c46292c1',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.176Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.177Z'
+# }
+# {
+#   message: '[AICache] Set for key: 184f9894c6904d2444e85e9683bd3d0c746b324988873e7754f4ab9f9732e7af',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.177Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.178Z'
+# }
+# {
+#   message: '[AICache] Set for key: 90bed796cf6f4bbbe0f51ddc6fd6df41b0cd15a39f07df232aa06f41f92419e3',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.178Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.179Z'
+# }
+# {
+#   message: '[AICache] Set for key: 1174b45d3c4f340b995f3c514c9cf5681721ca6fdfbc5efa599f0e38c8d4bd0e',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.179Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.179Z'
+# }
+# {
+#   message: '[AICache] Set for key: c3d7b10eea68bb6c28508640fde1fc4941f7b9716b736edc39760349f739e1d5',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.180Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.180Z'
+# }
+# {
+#   message: '[AICache] Set for key: 8be2f7667a1e1bbc0c11847f484ce0574ee737b2f0b460cd1b4ca30b23574a39',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.180Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.181Z'
+# }
+# {
+#   message: '[AICache] Set for key: dac97ce6639fcb6bf672a4ce8f30171ca75a56a247d914855165eaac9b332d22',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.181Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.181Z'
+# }
+# {
+#   message: '[AICache] Set for key: 1564a14f19cf36195bde6de9788c2e39a5228313869bf3b63dcf2b465f41f50f',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.182Z'
+# }
+# {
+#   message: '[AICache] Hit for key: c3d7b10eea68bb6c28508640fde1fc4941f7b9716b736edc39760349f739e1d5',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.182Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.182Z'
+# }
+# {
+#   message: '[AICache] Set for key: 394e4635e9ed0278fce0d1b1367b3532c8d5a487a1626d085c686ceab773c091',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.182Z'
+# }
+# {
+#   message: '[AICache] Hit for key: dac97ce6639fcb6bf672a4ce8f30171ca75a56a247d914855165eaac9b332d22',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.182Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.183Z'
+# }
+# {
+#   message: '[AICache] Set for key: 2afa4ecd30c8b90f58a4a23d6038cb081390287e9941bde58facd93ed39a91bf',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.183Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.184Z'
+# }
+# {
+#   message: '[AICache] Set for key: 54a0be46aea11f0310659337b7e42a80bf62f65c82f321578c68f5a098ef7ece',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.184Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.184Z'
+# }
+# {
+#   message: '[AICache] Set for key: 3e6548b0574de71bb5993832cfbd56a0ab91359f863c051aae34257b9a8e306c',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.184Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.185Z'
+# }
+# {
+#   message: '[AICache] Set for key: 94b09178b27c1f90dbe6c3cdded6505fdb560d1f9bf966ef30057ebfff828b74',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.185Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.185Z'
+# }
+# {
+#   message: '[AICache] Set for key: f0913ee48da7a4d1b951444108b259b21ff03e14c5bd6f5fd97f589cf5a82e34',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.185Z'
+# }
+# {
+#   message: '[AICache] Hit for key: 94b09178b27c1f90dbe6c3cdded6505fdb560d1f9bf966ef30057ebfff828b74',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.186Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.186Z'
+# }
+# {
+#   message: '[AICache] Set for key: 133a0dd8806d6cc610a91e5074ca57d8e1cf0f2af95279ac5ae57513bb8ac573',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.186Z'
+# }
+# AFTER YES -> SKILLS [
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.157Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'WELCOME'
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.158Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'WELCOME'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.158Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.159Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'lang',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.165Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.165Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.165Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'LANGUAGE_SELECTION'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.165Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.166Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'fullName',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.167Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.167Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.167Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'email',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.168Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.168Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.168Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'phone',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.170Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.170Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.170Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'location',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.171Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.171Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.171Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'PERSONAL_INFO'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.171Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.172Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'professionalSummary',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.173Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.173Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.173Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SUMMARY'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.175Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.175Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'company',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.177Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.177Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.177Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'jobTitle',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.179Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.179Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.179Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'achievements',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.180Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.180Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.180Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'ADD_ANOTHER',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.181Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.181Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.181Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'achievements',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.182Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.182Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.182Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'ADD_ANOTHER',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EXPERIENCE'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'help' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'help', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:49:52.183Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'clarification' }
+#   },
+#   {
+#     event: 'ClarificationRequested',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system'
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'clarification', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'unknown' }
+#   },
+#   {
+#     event: 'UnknownIntent',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system'
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'unknown', confidence: 99 }
+#   },
+#   {
+#     event: 'ConversationPaused',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'ConversationResumed',
+#     timestamp: '2026-07-04T09:49:52.184Z',
+#     conversationId: 'conv1',
+#     userId: 'user1'
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'skip' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'skip', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'CONFIRM_SKIP',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.185Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'institution',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'skip' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'skip', confidence: 99 }
+#   },
+#   {
+#     event: 'AIRequested',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     state: 'CONFIRM_SKIP',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'IntentDetected',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { detectedIntent: 'answer' }
+#   },
+#   {
+#     event: 'AISucceeded',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'system',
+#     metadata: { intent: 'answer', confidence: 99 }
+#   },
+#   {
+#     event: 'SectionSkipped',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'SectionCompleted',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'EDUCATION'
+#   },
+#   {
+#     event: 'SectionStarted',
+#     timestamp: '2026-07-04T09:49:52.186Z',
+#     conversationId: 'conv1',
+#     userId: 'user1',
+#     section: 'SKILLS'
+#   }
+# ]
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.190Z'
+# }
+# {
+#   message: '[AICache] Set for key: 187cc5512d3af0183fda0c86b10eb6bbe71502e99ec3da487c9f0ca8eb2e04a9',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.190Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.191Z'
+# }
+# {
+#   message: '[AICache] Set for key: f44b2a68bd4ee0f05ab9d0aac966f4f7d46c3c9d9ff9bd8401f359ba20cfb007',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.191Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.191Z'
+# }
+# {
+#   message: '[AICache] Set for key: 84cb8d136e15dc4d5adbfe3c44bd1c81fe091b692487f28f3e5df4c45c846fce',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.192Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.192Z'
+# }
+# {
+#   message: '[AICache] Set for key: 838a4fc958df78a1cd9d29b3a5926f76ba219d49f4e10fcc938fde59aa689b69',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.193Z'
+# }
+# --- METADATA STATE ---
+# currentSectionId: REVIEW
+# currentFieldId: DONE
+# completedSections: WELCOME,LANGUAGE_SELECTION,PERSONAL_INFO,SUMMARY,EXPERIENCE,REFERENCES
+# skippedSections: EDUCATION
+# returnToReview: false
+# pendingConfirmationData: undefined
+# lastBotMessage: Let's begin with your personal information.
+# May I have your full name exactly as you would like it to appear on your CV?
+# lang: en
+# ----------------------
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.196Z'
+# }
+# {
+#   message: '[AICache] Set for key: 97692e9bf5f62a98248baab48ba86934b37a02e6b5bd3132858e1f761d68b42c',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.196Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.197Z'
+# }
+# {
+#   message: '[AICache] Set for key: d8d323689fac5a283b4fce3c46447f2c4fa9dea4f90c8ef8f39d6398b86785c4',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.197Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.197Z'
+# }
+# {
+#   message: '[AICache] Set for key: 795467131a62ffae424cc3c7c1f8144b4ebc63210b314c457104d2d54fd924f0',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.197Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.198Z'
+# }
+# {
+#   message: '[AICache] Set for key: a800089886c6a0511c1b9d1956df7a2f7f0a344190f5caa067179183d58cb519',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.198Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.198Z'
+# }
+# {
+#   message: '[AICache] Set for key: 035c8004524961e333b6ce9f2319a4560db0fdb9f51a227c41dea9e4028e9e62',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.198Z'
+# }
+# {
+#   message: '[AIPolicyEngine] Attempt 1 using model gemini-2.5-flash',
+#   level: 'info',
+#   timestamp: '2026-07-04T09:49:52.199Z'
+# }
+# {
+#   message: '[AICache] Set for key: 3f95097adc0322a8110e08f0fb62e3d6fa995256d4ae0a1b819fb372949d3af7',
+#   level: 'debug',
+#   timestamp: '2026-07-04T09:49:52.199Z'
+# }
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 39.140436
+      type: 'test'
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 3.973847
+      type: 'test'
+      ...
+    1..2
+ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 44.70123
+  type: 'suite'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 780.097793

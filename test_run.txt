@@ -1,0 +1,65 @@
+TAP version 13
+# [USER]: hello
+# [USER]: hello
+# Subtest: FSMEngine Full Integration
+    # Subtest: verifies the full flow: startup, all sections, review, edit, and pdf generation
+    not ok 1 - verifies the full flow: startup, all sections, review, edit, and pdf generation
+      ---
+      duration_ms: 4.996203
+      type: 'test'
+      location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:2:796'
+      failureType: 'testCodeFailure'
+      error: 'conversation is not defined'
+      code: 'ERR_TEST_FAILURE'
+      name: 'ReferenceError'
+      stack: |-
+        FSMEngine.sendCurrentPrompt (/app/applet/src/conversation/fsm/FSMEngine.ts:635:25)
+        FSMEngine.startSection (/app/applet/src/conversation/fsm/FSMEngine.ts:557:18)
+        async FSMEngine.completeSection (/app/applet/src/conversation/fsm/FSMEngine.ts:685:9)
+        async FSMEngine.processMessage (/app/applet/src/conversation/fsm/FSMEngine.ts:57:7)
+        async runTick (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:93:7)
+        async TestContext.<anonymous> (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:113:5)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Promise.all (index 0)
+        async Suite.run (node:internal/test_runner/test:1442:7)
+        async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+      ...
+    # Subtest: verifies confirmation flow and restart recovery
+    not ok 2 - verifies confirmation flow and restart recovery
+      ---
+      duration_ms: 6.682773
+      type: 'test'
+      location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:2:5992'
+      failureType: 'testCodeFailure'
+      error: 'conversation is not defined'
+      code: 'ERR_TEST_FAILURE'
+      name: 'ReferenceError'
+      stack: |-
+        FSMEngine.sendCurrentPrompt (/app/applet/src/conversation/fsm/FSMEngine.ts:635:25)
+        FSMEngine.advanceField (/app/applet/src/conversation/fsm/FSMEngine.ts:614:18)
+        async FSMEngine.handleIntent (/app/applet/src/conversation/fsm/FSMEngine.ts:491:7)
+        async FSMEngine.processMessage (/app/applet/src/conversation/fsm/FSMEngine.ts:132:5)
+        async runTick (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:93:7)
+        async TestContext.<anonymous> (/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:260:6)
+        async Test.run (node:internal/test_runner/test:1054:7)
+        async Suite.processPendingSubtests (node:internal/test_runner/test:744:7)
+      ...
+    1..2
+not ok 1 - FSMEngine Full Integration
+  ---
+  duration_ms: 13.177233
+  type: 'suite'
+  location: '/app/applet/src/conversation/fsm/tests/fsm-integration.test.ts:1:909'
+  failureType: 'subtestsFailed'
+  error: '2 subtests failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..1
+# tests 2
+# suites 1
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 790.465583
