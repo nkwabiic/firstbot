@@ -22,8 +22,19 @@ export class BaileysProvider implements IWhatsAppProvider {
   private processedMessages: MessageCacheEntry[] = [];
   private readonly CACHE_EXPIRY_MS = 5 * 60 * 1000; // 5 minutes
 
+  private currentQR: string | null = null;
+  private isAuthenticatedStatus: boolean = false;
+
   constructor() {
     this.init().catch(err => logger.error('[Baileys] Constructor init failed', err));
+  }
+
+  public getCurrentQR(): string | null {
+    return this.currentQR;
+  }
+
+  public isAuthenticated(): boolean {
+    return this.isAuthenticatedStatus;
   }
 
   public setMessageHandler(handler: (from: string, text: string) => Promise<void>) {
@@ -122,9 +133,11 @@ export class BaileysProvider implements IWhatsAppProvider {
         if (qr) {
           logger.info('[Baileys] Scan this QR code to authenticate:');
           qrcode.generate(qr, { small: true });
+          this.currentQR = qr;
         }
 
         if (connection === 'close') {
+          this.isAuthenticatedStatus = false;
           const shouldReconnect = (lastDisconnect?.error as Boom)?.output?.statusCode !== DisconnectReason.loggedOut;
           logger.warn(`[Baileys] Connection closed due to ${lastDisconnect?.error}. Reconnecting: ${shouldReconnect}`);
           
@@ -142,6 +155,8 @@ export class BaileysProvider implements IWhatsAppProvider {
         } else if (connection === 'open') {
           logger.info('[Baileys] Connected to WhatsApp!');
           this.reconnectAttempt = 0; // Reset retry counter on successful connection
+          this.currentQR = null;
+          this.isAuthenticatedStatus = true;
         }
       });
 

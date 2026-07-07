@@ -8,6 +8,7 @@ import { loggerMiddleware } from './app/middleware/logger.middleware.js';
 import { errorHandler } from './app/middleware/error.middleware.js';
 import { rateLimiter } from './app/middleware/rate-limiter.middleware.js';
 import routes from './app/routes/index.js';
+import adminRoutes from './app/routes/admin.routes.js';
 import { MetricsObserver } from './conversation/observability/metrics.js';
 
 // Initialize MetricsObserver early
@@ -32,6 +33,7 @@ app.use(rateLimiter);
 
 // API Routes
 app.use('/api', routes);
+app.use('/admin', adminRoutes);
 
 // Global Error Handler
 app.use(errorHandler);
