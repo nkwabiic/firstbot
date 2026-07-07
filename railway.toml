@@ -2,5 +2,5 @@
 builder = "DOCKERFILE"
 
 [deploy]
-startCommand = "npx prisma db push && npm run start"
+startCommand = "node dist/src/server.js"
 restartPolicyType = "ON_FAILURE"
