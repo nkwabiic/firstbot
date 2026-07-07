@@ -38,7 +38,7 @@ app.use('/admin', adminRoutes);
 // Global Error Handler
 app.use(errorHandler);
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT} in ${config.NODE_ENV} mode.`);
