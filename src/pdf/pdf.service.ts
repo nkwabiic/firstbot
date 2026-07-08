@@ -11,12 +11,18 @@ export class PDFService {
     try {
       const puppeteerOptions: Parameters<typeof puppeteer.launch>[0] = {
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/chromium",
+        args: [
+          "--no-sandbox",
+          "--disable-setuid-sandbox",
+          "--disable-dev-shm-usage",
+          "--disable-gpu",
+          "--disable-software-rasterizer",
+          "--disable-extensions",
+          "--no-zygote",
+          "--single-process"
+        ]
       };
-
-      if (process.env.PUPPETEER_EXECUTABLE_PATH) {
-        puppeteerOptions.executablePath = process.env.PUPPETEER_EXECUTABLE_PATH;
-      }
 
       browser = await puppeteer.launch(puppeteerOptions);
 
