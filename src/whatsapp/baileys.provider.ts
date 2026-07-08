@@ -214,8 +214,12 @@ export class BaileysProvider implements IWhatsAppProvider {
   }
 
   async sendMessage(to: string, message: string): Promise<boolean> {
+    logger.info(`[TRACE] BaileysProvider.sendMessage called with to=${to}`);
     try {
-      if (!this.sock) return false;
+      if (!this.sock) {
+        logger.warn(`[TRACE] BaileysProvider.sendMessage returned false because this.sock is undefined`);
+        return false;
+      }
       const jid = `${to}@s.whatsapp.net`;
       
       const pdfLinkMatch = message.match(/Unaweza kuipakua hapa:\s+(http\S+\.pdf)/);
@@ -233,21 +237,25 @@ export class BaileysProvider implements IWhatsAppProvider {
             caption: message
           });
           logger.info(`[Baileys] Sent document to ${to}`);
+          logger.info(`[TRACE] BaileysProvider.sendMessage returning true (document)`);
           return true;
         } catch (docError) {
           logger.error(`[Baileys] Failed to send document to ${to}, falling back to text. URL: ${pdfUrl}`, docError);
           // Fallback to text message if doc upload fails or URL is invalid
           await this.sock.sendMessage(jid, { text: message });
           logger.info(`[Baileys] Sent fallback text message to ${to}`);
+          logger.info(`[TRACE] BaileysProvider.sendMessage returning true (fallback)`);
           return true;
         }
       }
 
       await this.sock.sendMessage(jid, { text: message });
       logger.info(`[Baileys] Sent message to ${to}`);
+      logger.info(`[TRACE] BaileysProvider.sendMessage returning true (text)`);
       return true;
     } catch (error) {
       logger.error(`[Baileys] Failed to send message to ${to}`, error);
+      logger.info(`[TRACE] BaileysProvider.sendMessage returning false (error)`);
       return false;
     }
   }

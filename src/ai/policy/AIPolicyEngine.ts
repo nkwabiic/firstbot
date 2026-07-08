@@ -39,7 +39,7 @@ export class AIPolicyEngine {
     // 2. Check Cache
     const cached = AICache.get<T>(cacheKey);
     if (cached) {
-      return {
+      const result: AIPolicyResult<T> = {
         success: true,
         data: cached,
         modelUsed: profile.model,
@@ -47,6 +47,8 @@ export class AIPolicyEngine {
         cached: true,
         retries: 0
       };
+      logger.info(`[TRACE] Returning from AIPolicyEngine (cached): ${JSON.stringify(result)}`);
+      return result;
     }
 
     const startTime = Date.now();
@@ -78,8 +80,7 @@ export class AIPolicyEngine {
 
         // 4. Set Cache
         AICache.set(cacheKey, data);
-
-        return {
+        const result: AIPolicyResult<T> = {
           success: true,
           data,
           modelUsed: currentModel,
@@ -87,6 +88,8 @@ export class AIPolicyEngine {
           cached: false,
           retries: currentAttempt - 1
         };
+        logger.info(`[TRACE] Returning from AIPolicyEngine (success): ${JSON.stringify(result)}`);
+        return result;
 
       } catch (error) {
         lastError = error instanceof Error ? error : new Error(String(error));
@@ -113,7 +116,7 @@ export class AIPolicyEngine {
     }
 
     // 5. Return Failure
-    return {
+    const result: AIPolicyResult<T> = {
       success: false,
       error: lastError?.message || 'Unknown error occurred during AI execution',
       modelUsed: currentModel,
@@ -121,6 +124,8 @@ export class AIPolicyEngine {
       cached: false,
       retries: currentAttempt - 1
     };
+    logger.info(`[TRACE] Returning from AIPolicyEngine (failure): ${JSON.stringify(result)}`);
+    return result;
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
