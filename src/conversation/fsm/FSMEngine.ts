@@ -69,6 +69,7 @@ export class FSMEngine {
                            trimmed.includes('english') || trimmed.includes('en') || trimmed.includes('sw');
       
       if (!isLangChoice) {
+        logger.info("[TRACE] Returning from processMessage (!isLangChoice)");
         return;
       }
     }
@@ -91,7 +92,10 @@ export class FSMEngine {
 
       logger.info(`[FSM] Review handled=${handled}`);
 
-      if (handled) return;
+      if (handled) {
+        logger.info("[TRACE] Returning from processMessage (review handled)");
+        return;
+      }
     }
 
     // Prepare expected field info for IntentEngine
@@ -156,6 +160,7 @@ export class FSMEngine {
       `[FSM] Meta BEFORE handleIntent = ${JSON.stringify(meta, null, 2)}`
     );
     await this.handleIntent(intentResult, conversation, user, lang, cv, meta, message);
+    logger.info("[TRACE] Returning from FSMEngine processMessage");
   }
 
   private async handleIntent(
@@ -192,6 +197,7 @@ export class FSMEngine {
         // Assume No/Done, complete section
         await this.completeSection(section, conversation, user, lang, cv, meta, false);
       }
+      logger.info("[TRACE] Returning from handleIntent (ADD_ANOTHER)");
       return;
     }
 
@@ -248,6 +254,7 @@ export class FSMEngine {
             `[FSM] Calling startSection(${targetSection.id})`
           );
           await this.startSection(targetSection.id, conversation, user, lang, cv);
+          logger.info("[TRACE] Returning from handleIntent (edit target section)");
           return;
         }
       }
@@ -259,6 +266,7 @@ export class FSMEngine {
           ? 'Umesema unataka kubadili taarifa, lakini sijui ni sehemu gani. Tafadhali taja sehemu (mfano: elimu, uzoefu).'
           : 'I understand you want to edit, but I am not sure which section. Please specify (e.g., education, experience).');
       await this.provider.sendMessage(user.phone, botReply);
+      logger.info("[TRACE] Returning from handleIntent (edit default)");
       return;
     }
 
@@ -286,6 +294,7 @@ export class FSMEngine {
       });
       // Resend current prompt
       await this.sendCurrentPrompt(section, meta, user, lang);
+      logger.info("[TRACE] Returning from handleIntent (help/unknown)");
       return;
     }
 
@@ -319,6 +328,7 @@ export class FSMEngine {
         });
         await this.completeSection(section, conversation, user, lang, cv, meta, true);
       }
+      logger.info("[TRACE] Returning from handleIntent (skip)");
       return;
     }
 
@@ -374,6 +384,7 @@ export class FSMEngine {
           await this.provider.sendMessage(user.phone, fallback);
         }
       }
+      logger.info("[TRACE] Returning from handleIntent (CONFIRM_SKIP)");
       return;
     }
 
@@ -392,6 +403,7 @@ export class FSMEngine {
           meta,
           meta.pendingConfirmationData
         );
+        logger.info("[TRACE] Returning from handleIntent (confirmation advanced)");
         return;
       }
     }
@@ -407,9 +419,9 @@ export class FSMEngine {
             ? 'Nimeelewa: ' + JSON.stringify(intentResult.extractedData) + '. Ni sahihi?'
             : 'I understood: ' + JSON.stringify(intentResult.extractedData) + '. Is this correct?';
         await this.provider.sendMessage(user.phone, confirmMsg);
+        logger.info("[TRACE] Returning from handleIntent (answer requires confirmation)");
         return;
       }
-
       if (intentResult.extractedData) {
         await this.applyExtractedData(intentResult.extractedData, cv);
       }
@@ -433,11 +445,13 @@ export class FSMEngine {
         intentResult.extractedData,
         intentResult.botReply
       );
+      logger.info("[TRACE] Returning from handleIntent (answer advanced)");
       return;
     }
 
     // Default catch-all
     await this.sendCurrentPrompt(section, meta, user, lang);
+    logger.info("[TRACE] Returning from handleIntent (default)");
   }
 
   private async applyExtractedData(data: Record<string, any>, cv: CV) {
@@ -454,7 +468,10 @@ export class FSMEngine {
     logger.info(`[TRACE] ENTER startSection(${sectionId})`);
     logger.info(`[FSM] ENTER startSection(${sectionId})`);
     const section = SECTION_REGISTRY[sectionId];
-    if (!section) return;
+    if (!section) {
+      logger.info("[TRACE] Returning from startSection (!section)");
+      return;
+    }
 
     this.eventBus.publish({
       event: ConversationEventType.SectionStarted,
@@ -552,6 +569,12 @@ export class FSMEngine {
           prompt = `${botReply.trim()}\n\n${prompt}`;
         }
         await this.provider.sendMessage(user.phone, prompt);
+    } else {
+      logger.warn(`[FSM] sendCurrentPrompt called but field ${meta.currentFieldId} not found in section ${section.id}`);
+      if (botReply) {
+        await this.provider.sendMessage(user.phone, botReply);
+      }
+        logger.info("[TRACE] Returning from advanceField (ADD_ANOTHER)");
         return;
       }
       if (meta.currentFieldId === 'ADD_ANOTHER') {
@@ -583,6 +606,11 @@ export class FSMEngine {
 
       meta.lastBotMessage = prompt;
       await this.provider.sendMessage(user.phone, prompt);
+    } else {
+      logger.warn(`[FSM] sendCurrentPrompt called but field ${meta.currentFieldId} not found in section ${section.id}`);
+      if (botReply) {
+        await this.provider.sendMessage(user.phone, botReply);
+      }
     }
   }
 
@@ -783,8 +811,10 @@ export class FSMEngine {
       } else {
         await this.provider.sendMessage(user.phone, 'Error generating PDF.');
       }
+      logger.info("[TRACE] Returning from handleReviewMode (true)");
       return true;
     }
+    logger.info("[TRACE] Returning from handleReviewMode (false)");
     return false;
   }
 

@@ -32,5 +32,6 @@ export class FiniteStateMachine {
 
   async processMessage(user: User, conversation: Conversation, message: string): Promise<void> {
     await this.engine.processMessage(user, conversation, message);
+    console.log(`[TRACE] Returning from FSM processMessage`);
   }
 }
